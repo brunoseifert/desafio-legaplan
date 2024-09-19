@@ -1,0 +1,316 @@
+body {
+  font-family: "Inter", sans-serif;
+  padding: 20px;
+}
+
+.layout {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #eaecf0;
+  box-shadow: 0px 1px 2px 0px #1018280d;
+
+  h2 {
+    font-family: "Inter Tight", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #0000008a;
+  }
+}
+
+.task-input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #d7dde9;
+  border-radius: 4px;
+  flex: 1;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.trash {
+  cursor: pointer;
+}
+
+ul.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  width: 354px;
+  height: 24px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px dashed #d7dde9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px auto;
+
+  &.completed {
+    background-color: #f0f0f0;
+  }
+
+  &:hover {
+    background-color: #f7f9fd;
+    border: none;
+    cursor: pointer;
+  }
+
+  .checkbox-wrapper input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+  }
+
+  .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 16px;
+  }
+
+  .checkbox-wrapper .checkbox-custom {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #d7dde9;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .checkbox-wrapper input[type="checkbox"]:checked + .checkbox-custom {
+    background-color: #a0dcf6;
+    border: 1px solid #0796d3;
+  }
+
+  .checkbox-wrapper .checkbox-custom::after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    background: url("/assets/Icon.svg") no-repeat center;
+    opacity: 0;
+    position: absolute;
+  }
+
+  .checkbox-wrapper input[type="checkbox"]:checked + .checkbox-custom::after {
+    opacity: 1;
+  }
+}
+
+li:hover {
+  background-color: #f7f9fd;
+  border: none;
+  cursor: pointer;
+}
+
+.completed-tasks {
+  margin-top: 20px;
+
+  p {
+    font-family: "Inter Tight", sans-serif;
+    text-decoration: line-through;
+    color: #0000008a;
+  }
+}
+
+.new-task-button {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  width: 100%;
+  height: 51px;
+  margin-top: 24px;
+  border-radius: 8px;
+  padding: 16px, 24px, 16px, 24px;
+  background: linear-gradient(90deg, #0796d3 0%, #53c0f0 68.65%);
+}
+
+.new-task-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos do Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(16, 24, 40, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  display: inline-block;
+  align-content: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  width: 450px;
+  height: 286px;
+  box-shadow: 0px 24px 48px -12px #1018282e;
+  box-sizing: border-box;
+
+  h2 {
+    font-family: "Inter Tight", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29.04px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #000000;
+  }
+}
+
+.modal input {
+  font-family: "Inter Tight", sans-serif;
+  width: 380px;
+  padding: 16px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #d7dde9;
+}
+
+.modal .button {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.modal button {
+  flex: 1;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.modal button:first-of-type {
+  height: 51px;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  letter-spacing: -0.02em;
+  background-color: #e7eefb;
+  color: black;
+}
+
+.modal button:last-of-type {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #0796d3 0%, #53c0f0 68.65%);
+  color: white;
+}
+
+/* Botão de Excluir */
+.modal button.delete-button {
+  background-color: #d30707;
+  background-image: linear-gradient(90deg, #d30707 0%, #f05353 68.65%);
+  color: white;
+}
+
+.modal .P-Delete {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #0000008a;
+  margin: 32px 0 32px 0;
+}
+
+@media (max-width: 640px) {
+  .layout {
+    margin-top: 20%;
+  }
+
+  .container {
+    width: 85%;
+  }
+
+  .task-input {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  input[type="text"] {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 18px;
+    width: 100%;
+    height: auto;
+  }
+
+  li {
+    width: 90%;
+  }
+
+  .modal {
+    background-color: white;
+    align-items: flex-start;
+  }
+
+  .modal-content {
+    width: 90%;
+    box-shadow: none;
+  }
+
+  .modal input {
+    width: 90%;
+  }
+
+  .modal .button {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+}
