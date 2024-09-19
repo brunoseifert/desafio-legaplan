@@ -20,6 +20,7 @@ Este é um projeto de **Gerenciador de Tarefas (To-Do List)** desenvolvido como 
 - **Adicionar Tarefas**: Crie novas tarefas com título e descrição.
 - **Marcar como Concluída**: Marque tarefas como concluídas para uma melhor organização.
 - **Remover Tarefas**: Exclua tarefas quando não forem mais necessárias.
+- **Login**: Sistema de Login no LocalStorage.
 
 ## 🚀 **Como Executar o Projeto**
 
